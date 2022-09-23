@@ -7,8 +7,6 @@ toc: true
 ---
 
 ## 1. 배경
-안녕하세요. Chloe Kang 입니다. 
-
 오늘은 스프링부트 개발환경 구축하기에 대해서 포스팅하겠습니다.
 
 저는 과거에 이클립스를 사용하여 스프링 개발을 했었는데요.
@@ -26,6 +24,7 @@ toc: true
 우선 처음에 jdk 를 설치해 줘야합니다. vscode 익스텐션 요구사항이 최소 11이기 때문에 익숙한 오라클 1.8(8) 버전을 버리고 완전무료인 openjdk11 을 설치해줍시다.
 
 ```bash
+brew tap AdoptOpenJDK/openjdk
 brew install --cask adoptopenjdk11
 ```
 
