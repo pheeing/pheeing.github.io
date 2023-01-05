@@ -2,7 +2,7 @@
 layout: single
 title: "[Spring Boot] Thymeleaf 에서 sass 사용하기 (gulp)"
 categories: springboot
-tag: [spring boot, vscode, setting, thymeleaf, sass, gulp]
+tag: [spring boot, vscode, setting, thymeleaf, sass, scss, gulp, 스프링부트, 타임리프, 사스, 걸프]
 toc: true
 ---
 

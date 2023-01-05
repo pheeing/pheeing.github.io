@@ -2,7 +2,7 @@
 layout: single
 title: "[Spring Boot] vscode 개발 환경 구축하기 (MAC)"
 categories: springboot
-tag: [spring boot, vscode, setting]
+tag: [spring boot, vscode, setting, mac, 스프링부트]
 toc: true
 ---
 
