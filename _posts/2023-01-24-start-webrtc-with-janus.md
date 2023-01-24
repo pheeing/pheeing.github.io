@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "[WebRTC] 화상회의 어플리케이션 개발하기 (with.janus-gateway) - (1)"
-categories: springboot
+categories: webrtc
 tag: [webrtc, 화상회의, 화상채팅, video conference, video chat, janus, janus gateway, stun, turn, signaling]
 toc: true
 ---
