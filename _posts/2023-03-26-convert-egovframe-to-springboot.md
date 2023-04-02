@@ -53,7 +53,7 @@ toc: true
 
 우리는 이것을 spring data jpa, querydsl 형식으로 변환 할 것이다.
 
-### jFile
+### JFile
 전자정부 프레임워크에 포함된 파일관련 패키지인데
 
 이것은 새로 구현하면된다.
@@ -228,3 +228,5 @@ dependencies {
 오늘은 jsp (tiles) 를 thymeleaf layout 으로 리팩토링 하는 방법까지 포스팅하겠습니다.
 
 나머지 기술스택 변환 방법에 대해서는 다음 포스팅에서 논의하죠.
+
+다음 포스팅은 [전자정부프레임워크 에서 스프링부트 변환 - (2)](/springboot/convert-egovframe-to-springboot2/)
