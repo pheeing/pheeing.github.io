@@ -152,12 +152,25 @@ vscode 자바프로젝트에는 .classpath 파일이 생성되지 않는 사실�
 이렇게 하면 정상적으로 개발이 가능합니다. 엔티티가 수정되고 querydsl을 재컴파일하면 
 두번째 엔트리 내용이 자동으로 바뀌는데 그부분만 **main** 으로 바꾸면 됩니다.
 
+**수정전**
 ```xml
 ...
 <classpathentry kind="src" output="bin/querydsl" path="build/generated/querydsl">
   <attributes>
     <attribute name="gradle_scope" value="querydsl"/>
     <attribute name="gradle_used_by_scope" value="querydsl"/>
+  </attributes>
+</classpathentry>
+...
+```
+
+**수정후**
+```xml
+...
+<classpathentry kind="src" output="bin/querydsl" path="build/generated/querydsl">
+  <attributes>
+    <attribute name="gradle_scope" value="main"/>
+    <attribute name="gradle_used_by_scope" value="main"/>
   </attributes>
 </classpathentry>
 ...

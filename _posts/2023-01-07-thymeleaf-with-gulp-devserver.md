@@ -501,6 +501,22 @@ gradlew.bat build
 
 명령어를 실행하면 됩니다.
 
+mac 유저의 경우 권한이 없거나 명령어가 없다고 나올수 있는데 
+
+```bash
+-> % ./gradlew build
+zsh: permission denied: ./gradlew
+
+-> % sudo ./gradlew build
+Password:
+sudo: ./gradlew: command not found
+```
+
+그때는 권한을 추가해줍니다.
+```bash
+chmod +x gradlew
+```
+
 빌드된 JAR 는 **/build/libs**  에 찾을 수 있습니다.
 
 다음에는 thymeleaf 환경에서 axios 를 활용 하는 방법에 대하여 포스팅 하겠습니다.
