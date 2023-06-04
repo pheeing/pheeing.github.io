@@ -345,3 +345,5 @@ CONSTRAINT  J_ATTACHFILE_PK PRIMARY KEY (FILE_ID, FILE_SEQ)
 여기까지 파일까지 리팩토링하는 방법에 대하여 포스팅하였다.
 
 나머지 기술스택 변환 방법에 대해서는 다음 포스팅에서 쓰겠습니다.
+
+다음 포스팅은 [전자정부프레임워크 에서 스프링부트 변환 - (3)](/springboot/convert-egovframe-to-springboot3/)
