@@ -163,7 +163,26 @@ NAT Gateway 설정을 해줍니다.
 
 서버 생성을 하면 완료 됩니다.
 
-## 3. 설치완료 테스트
+## 3. kubectl 설치
+위에서 kubectl 서버를 세팅후 ssh 로 접속해서 마저 설치 합니다.
+
+```bash
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+sudo apt-get update
+sudo apt-get install -y kubectl
+```
+설치가 완료되면 알리아스를 등록해줍니다.
+
+```bash
+alias kubectl='kubectl --kubeconfig="kubeconfig-1fa6c002-1645-4d93-b650-870b7ee3a453.yaml"'
+```
+
 모든게 다 설치 되었으면 실제 kubectl 서버로 접속해서 제대로 되는지 확인을 해줍니다.
 
 ![kubectl7](/images/2023-11-20-setup-kubernetes-in-ncp/kubectl7.JPG)
