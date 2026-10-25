@@ -1,0 +1,6 @@
+<article class="surface group p-6 transition hover:border-indigo-300 dark:hover:border-indigo-700">
+  <div class="mb-3 flex flex-wrap items-center gap-3 text-xs muted"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>{{ with .Params.categories }}<span>·</span><span>{{ if reflect.IsSlice . }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}</span>{{ end }}{{ if site.Params.showReadingTime }}<span>· {{ .ReadingTime }}분 읽기</span>{{ end }}</div>
+  <h2 class="mb-2 text-lg font-semibold tracking-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  <p class="mb-4 line-clamp-2 text-sm leading-7 muted">{{ .Description | default (.Summary | plainify) | truncate 155 }}</p>
+  <a href="{{ .RelPermalink }}" class="text-sm font-medium link">글 읽기 →</a>
+</article>

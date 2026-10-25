@@ -1,0 +1,71 @@
+baseURL: "https://pheeing.github.io"
+locale: ko-kr
+title: "코딩잘하자"
+timeZone: Asia/Seoul
+taxonomies:
+  category: categories
+  tag: tag
+permalinks:
+  taxonomy:
+    tag: /tags/
+    categories: /categories/
+  term:
+    tag: /tags/:slug/
+    categories: /categories/:slug/
+pagination:
+  pagerSize: 8
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+  highlight:
+    noClasses: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+outputs:
+  home: [HTML, RSS, JSON]
+  section: [HTML, RSS]
+outputFormats:
+  JSON:
+    mediaType: application/json
+    baseName: search-index
+    isPlainText: true
+    notAlternative: true
+params:
+  description: "개발하며 기록하는 작은 공간"
+  showReadingTime: true
+  author:
+    name: "Chloe Kang"
+    # static/images/avatar.jpg 에 이미지를 저장하고 아래 주석을 해제하세요.
+    avatar: "" # "/images/avatar.jpg"
+    bio: "다양한 개발을 하고 있는 개발자 입니다."
+    location: "서울"
+    email: "hello@example.com"
+    links:
+      - label: "Email"
+        icon: "fas fa-fw fa-envelope-square"
+        url: ""
+      - label: "Website"
+        icon: "fas fa-fw fa-link"
+        url: ""
+      - label: "GitHub"
+        icon: "fab fa-fw fa-github"
+        url: "https://github.com/pheeing"
+      - label: "Twitter"
+        icon: "fab fa-fw fa-twitter-square"
+        url: ""
+      - label: "Instagram"
+        icon: "fab fa-fw fa-instagram"
+        url: ""
+  footer:
+    links:
+      - label: "GitHub"
+        icon: "fab fa-fw fa-github"
+        url: "https://github.com/pheeing"
+      - label: "GitLab"
+        icon: "fab fa-fw fa-gitlab"
+        url: ""
+      - label: "Instagram"
+        icon: "fab fa-fw fa-instagram"
+        url: ""

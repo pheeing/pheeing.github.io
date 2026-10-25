@@ -1,0 +1,17 @@
+<footer class="mt-20 border-t border-slate-200 dark:border-slate-800">
+  <div class="shell flex flex-col gap-3 py-9 text-sm muted sm:flex-row sm:items-center sm:justify-between">
+    <p>© {{ now.Year }} {{ site.Title }}. Built with Hugo &amp; Tailwind CSS.</p>
+    <div class="flex flex-wrap gap-4">
+      <a class="hover:text-indigo-500" href="{{ "index.xml" | relURL }}">RSS</a>
+      {{ with site.Params.footer }}
+      {{ range .links }}
+      {{ if .url }}
+      <a class="hover:text-indigo-500" href="{{ .url | safeURL }}" {{ if hasPrefix .url "http" }}target="_blank" rel="noopener noreferrer"{{ end }}>
+        {{ .label }}
+      </a>
+      {{ end }}
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</footer>

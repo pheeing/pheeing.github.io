@@ -1,0 +1,14 @@
+<header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-slate-800 dark:bg-[#0d1119]/90">
+  <div class="shell flex h-17 items-center justify-between gap-3">
+    <a href="{{ site.Home.RelPermalink }}" class="flex min-w-0 items-center gap-2.5 font-bold tracking-tight text-lg sm:text-xl">
+      <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white text-base">N</span>
+      <span class="truncate">{{ site.Title }}</span>
+    </a>
+    <nav aria-label="주 메뉴" class="flex items-center gap-3 sm:gap-6 text-sm font-medium">
+      <a class="hidden sm:inline hover:text-indigo-600" href="{{ site.Home.RelPermalink }}">Home</a>
+      <a class="hover:text-indigo-600" href="{{ "categories/" | relURL }}">Categories</a><a class="hover:text-indigo-600" href="{{ "tags/" | relURL }}">Tags</a>
+      <a class="hover:text-indigo-600" href="{{ "search/" | relURL }}" aria-label="검색">⌕ <span class="hidden sm:inline">Search</span></a>
+      <button data-theme-toggle aria-label="다크모드 변경" title="테마 변경" aria-pressed="false" class="rounded-xl border border-slate-200 p-2 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800"><span data-theme-icon>◐</span></button>
+    </nav>
+  </div>
+</header>

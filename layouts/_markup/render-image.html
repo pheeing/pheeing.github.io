@@ -1,0 +1,5 @@
+{{- /* Markdown 이미지: ![설명](image.png). Page Bundle은 .Resources.GetMatch로 이미지 참조 */ -}}
+{{- $src := .Destination -}}
+{{- $target := .Page.Resources.GetMatch .Destination -}}
+{{- if $target -}}{{- $src = $target.RelPermalink -}}{{- else -}}{{- $src = (.Destination | safeURL) -}}{{- end -}}
+<figure class="my-7"><img src="{{ $src }}" alt="{{ .Text }}" loading="lazy" decoding="async" class="rounded-xl border border-slate-200 dark:border-slate-700" {{ with .Title }}title="{{ . }}"{{ end }}>{{ with .Title }}<figcaption class="mt-2 text-center text-sm text-slate-500">{{ . }}</figcaption>{{ end }}</figure>

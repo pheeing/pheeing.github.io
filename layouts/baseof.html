@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "ko-KR" }}">
+<head>{{ partial "head.html" . }}</head>
+<body class="min-h-screen flex flex-col">
+{{ partial "header.html" . }}
+<main id="main-content" class="flex-1">{{ block "main" . }}{{ end }}</main>
+{{ partial "footer.html" . }}
+<script defer src="{{ "js/main.js" | relURL }}"></script>
+</body></html>

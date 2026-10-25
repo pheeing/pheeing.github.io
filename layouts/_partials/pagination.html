@@ -1,0 +1,6 @@
+{{ $p := .Paginator }}{{ if gt $p.TotalPages 1 }}
+<nav aria-label="페이지 이동" class="mt-10 flex items-center justify-center gap-3 text-sm">
+{{ with $p.Prev }}<a class="chip" href="{{ .URL }}">← 이전</a>{{ end }}
+<span class="muted">{{ $p.PageNumber }} / {{ $p.TotalPages }}</span>
+{{ with $p.Next }}<a class="chip" href="{{ .URL }}">다음 →</a>{{ end }}
+</nav>{{ end }}

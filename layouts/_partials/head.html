@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+{{ $title := .Title }}{{ if .IsHome }}{{ $title = site.Title }}{{ else }}{{ $title = printf "%s · %s" .Title site.Title }}{{ end }}
+<title>{{ $title }}</title>
+{{ $desc := .Description | default .Summary | default site.Params.description }}
+<meta name="description" content="{{ $desc | plainify | htmlEscape }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235267db'/%3E%3Ctext x='32' y='43' text-anchor='middle' fill='white' font-size='34'%3EN%3C/text%3E%3C/svg%3E">
+{{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .RelPermalink }}">{{ end }}
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ $desc | plainify | htmlEscape }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+<!-- Hugo Chroma Syntax Highlighting -->
+<link rel="stylesheet" href="{{ "css/chroma-light.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/chroma-dark.css" | relURL }}">
+<script>
+/* 화면 깜빡임을 방지하기 위해 head에서 저장된 테마를 즉시 적용 */
+(function(){try{var v=localStorage.getItem('theme');var dark=v==='dark'||(!v&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',dark)}catch(e){}})();
+</script>
+
+{{ if eq .Layout "search" }}<script defer src="{{ "js/search.js" | relURL }}"></script>{{ end }}

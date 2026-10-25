@@ -1,0 +1,30 @@
+/* Chroma dark (GitHub Dark inspired) — ALWAYS scoped to html.dark. */
+:root.dark .article .chroma { color: #e6edf3; background: #0d1117; }
+:root.dark .article .chroma .err { color: #f85149; }
+:root.dark .article .chroma .k, :root.dark .article .chroma .kc, :root.dark .article .chroma .kd,
+:root.dark .article .chroma .kn, :root.dark .article .chroma .kp, :root.dark .article .chroma .kr,
+:root.dark .article .chroma .kt, :root.dark .article .chroma .o, :root.dark .article .chroma .ow { color: #ff7b72; }
+:root.dark .article .chroma .n, :root.dark .article .chroma .nx, :root.dark .article .chroma .p { color: #e6edf3; }
+:root.dark .article .chroma .na, :root.dark .article .chroma .nb, :root.dark .article .chroma .nc,
+:root.dark .article .chroma .nd, :root.dark .article .chroma .ne, :root.dark .article .chroma .nf,
+:root.dark .article .chroma .fm, :root.dark .article .chroma .nn { color: #d2a8ff; }
+:root.dark .article .chroma .nv, :root.dark .article .chroma .vc, :root.dark .article .chroma .vg,
+:root.dark .article .chroma .vi, :root.dark .article .chroma .vm, :root.dark .article .chroma .no { color: #ffa657; }
+:root.dark .article .chroma .s, :root.dark .article .chroma .sa, :root.dark .article .chroma .sb,
+:root.dark .article .chroma .sc, :root.dark .article .chroma .dl, :root.dark .article .chroma .sd,
+:root.dark .article .chroma .s1, :root.dark .article .chroma .s2, :root.dark .article .chroma .sh,
+:root.dark .article .chroma .si, :root.dark .article .chroma .sr, :root.dark .article .chroma .ss,
+:root.dark .article .chroma .sx, :root.dark .article .chroma .se { color: #a5d6ff; }
+:root.dark .article .chroma .m, :root.dark .article .chroma .mb, :root.dark .article .chroma .mf,
+:root.dark .article .chroma .mh, :root.dark .article .chroma .mi, :root.dark .article .chroma .il,
+:root.dark .article .chroma .mo { color: #79c0ff; }
+:root.dark .article .chroma .c, :root.dark .article .chroma .ch, :root.dark .article .chroma .cm,
+:root.dark .article .chroma .c1, :root.dark .article .chroma .cs, :root.dark .article .chroma .cp,
+:root.dark .article .chroma .cpf { color: #8b949e; font-style: italic; }
+:root.dark .article .chroma .gd { color: #ffdcd7; background: #67060c; }
+:root.dark .article .chroma .gi { color: #aff5b4; background: #033a16; }
+:root.dark .article .chroma .gh, :root.dark .article .chroma .gu { color: #79c0ff; font-weight: 700; }
+:root.dark .article .chroma .ge { font-style: italic; }
+:root.dark .article .chroma .gs { font-weight: 700; }
+:root.dark .article .chroma .ln, :root.dark .article .chroma .lnt { color: #8b949e; }
+:root.dark .article .chroma .hl { background: #1f3a52; }

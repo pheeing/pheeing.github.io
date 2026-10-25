@@ -1,0 +1,28 @@
+{{ with site.Params.author }}
+<aside class="surface p-6" aria-label="블로그 작성자">
+  <div class="flex items-center gap-4">
+    {{ with .avatar }}
+    <img class="h-16 w-16 rounded-full object-cover" src="{{ . | relURL }}" alt="프로필 이미지" loading="lazy">
+    {{ else }}
+    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-2xl font-bold text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+      {{ substr (.name | default "A") 0 1 | upper }}
+    </div>
+    {{ end }}
+    <div>
+      <h2 class="text-lg font-semibold">{{ .name }}</h2>
+      {{ with .location }}
+      <p class="mt-1 text-sm muted">⌖ {{ . }}</p>
+      {{ end }}
+    </div>
+  </div>
+  {{ with .bio }}
+  <p class="mt-5 text-sm leading-7 muted">{{ . }}</p>
+  {{ end }}
+  <div class="mt-5 flex flex-wrap gap-2">{{ range .links }}
+    {{ if .url }}
+    <a class="chip" href="{{ .url | safeURL }}" {{ if hasPrefix .url "http" }}target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
+    {{ end }}
+    {{ end }}
+  </div>
+</aside>
+{{ end }}

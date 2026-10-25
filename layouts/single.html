@@ -1,0 +1,75 @@
+{{ define "main" }}
+<div class="shell pt-11 pb-16">
+  <nav aria-label="Breadcrumb" class="mb-7 flex flex-wrap gap-2 text-sm muted">
+    <a href="{{ site.Home.RelPermalink }}" class="hover:text-indigo-500">Home</a>
+    <span>/</span>{{ range first 1 (.GetTerms "categories") }}
+    <a href="{{ .RelPermalink }}" class="hover:text-indigo-500">{{ .LinkTitle }}</a>
+    <span>/</span>
+    {{ else }}
+    {{ with .CurrentSection }}
+    {{ if not .IsHome }}
+    <a href="{{ .RelPermalink }}" class="hover:text-indigo-500">{{ .LinkTitle }}</a>
+    <span>/</span>
+    {{ end }}
+    {{ end }}
+    {{ end }}<span aria-current="page">{{ .LinkTitle }}</span>
+  </nav>
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_230px]">
+    <article class="min-w-0">
+      <header class="mb-10">
+        <div class="mb-4 flex flex-wrap gap-2">{{ range .GetTerms "categories" }}
+          <a class="chip" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          {{ end }}
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight leading-snug sm:text-4xl">{{ .Title }}</h1>
+        {{ with .Description }}
+        <p class="mt-4 text-lg muted">{{ . }}</p>
+        {{ end }}
+        <div class="mt-5 flex items-center gap-3 text-sm muted">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+          {{ if site.Params.showReadingTime }}
+          <span>· {{ .ReadingTime }}분 읽기</span>
+          {{ end }}
+        </div>
+      </header>
+      {{ if .Params.toc }}
+      <details class="surface mb-8 p-5 lg:hidden">
+        <summary class="cursor-pointer font-semibold">목차 보기</summary>
+        <div class="toc mt-3">{{ .TableOfContents }}</div>
+      </details>{{ end }}
+      <div class="article">{{ .Content }}</div>
+      <section class="mt-12 space-y-3 border-t border-slate-200 pt-7 text-sm dark:border-slate-800" aria-label="게시글 메타 정보">
+        <div class="flex flex-wrap items-center gap-2"><strong class="w-20 shrink-0">Category</strong>{{ range .GetTerms "categories" }}
+          <a class="chip" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          {{ else }}
+          <span class="muted">없음</span>
+          {{ end }}
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <strong class="w-20 shrink-0">Tags</strong>
+          {{ range .GetTerms "tag" }}
+          <a class="chip" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+          {{ else }}
+          <span class="muted">없음</span>
+          {{ end }}
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <strong class="w-20 shrink-0">Updated</strong>
+          <time class="muted" datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006.01.02" }}</time>
+        </div>
+      </section>
+      <nav class="mt-10 flex flex-wrap justify-between gap-4 text-sm">{{ with .PrevInSection }}
+        <a class="link" href="{{ .RelPermalink }}">← {{ .LinkTitle }}</a>
+        {{ end }}{{ with .NextInSection }}
+        <a class="link" href="{{ .RelPermalink }}">{{ .LinkTitle }} →</a>
+        {{ end }}
+      </nav>
+    </article>{{ if .Params.toc }}
+    <aside class="hidden lg:block">
+      <div class="sticky top-26">
+        <h2 class="mb-4 text-xs font-bold uppercase tracking-widest muted">On this page</h2>
+        <nav aria-label="문서 목차" class="toc">{{ .TableOfContents }}</nav>
+      </div>
+    </aside>{{ end }}
+  </div>
+</div>{{ end }}

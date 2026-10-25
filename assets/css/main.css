@@ -1,0 +1,103 @@
+/* Hugo Clean Starter v3 — Tailwind v4 + Chroma. All code-block CSS lives under assets/css. */
+@import "tailwindcss";
+@import "./chroma-light.css";
+@import "./chroma-dark.css";
+@plugin "@tailwindcss/typography";
+@source "../../layouts";
+@source "../../content";
+@source "../../archetypes";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Pretendard", "Noto Sans KR", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --color-brand-500: #6478e9;
+  --color-brand-600: #5267db;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-slate-800 antialiased dark:bg-[#0d1119] dark:text-slate-200; }
+  ::selection { @apply bg-indigo-200 text-indigo-950 dark:bg-indigo-500 dark:text-white; }
+}
+
+@layer components {
+  .shell { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .muted { @apply text-slate-500 dark:text-slate-400; }
+  .surface { @apply rounded-2xl border border-slate-200/80 bg-white dark:border-slate-800 dark:bg-slate-900/40; }
+  .link { @apply text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300; }
+  .chip { @apply inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-indigo-300 hover:text-indigo-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300; }
+  /* No prose-pre:bg-* here: Chroma owns highlighted background and foreground. */
+  .article { @apply prose prose-slate max-w-none dark:prose-invert prose-headings:scroll-mt-24 prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-img:rounded-xl; }
+  .toc a { @apply block py-1 text-sm text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400; }
+  .toc ul { @apply ml-3 border-l border-slate-200 pl-3 dark:border-slate-700; }
+}
+
+/* Explicit code block styles override typography plugin's prose pre/code rules. */
+.article .highlight {
+  margin-block: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #d0d7de;
+  border-radius: 0.75rem;
+  background: #f6f8fa;
+}
+.dark .article .highlight { border-color: #30363d; background: #0d1117; }
+
+/* Both plain fenced blocks and Chroma-enabled blocks. */
+.article pre {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-block: 1.5rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: 0.75rem;
+  background: #f6f8fa;
+  color: #24292f;
+  font: 400 0.875rem/1.75 var(--font-mono);
+  scrollbar-width: thin;
+  tab-size: 2;
+}
+.dark .article pre { background: #0d1117; color: #e6edf3; }
+.article .highlight pre,
+.article .highlight pre.chroma {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+.article pre code,
+.article .highlight code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  font: inherit;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+/* Typography adds backticks via ::before/::after; never show them in blocks. */
+.article pre code::before,
+.article pre code::after,
+.article .highlight code::before,
+.article .highlight code::after { content: none; }
+
+/* Inline code is separate from fenced code. */
+.article :not(pre) > code {
+  border-radius: 0.3rem;
+  padding: 0.15em 0.35em;
+  background: #f1f5f9;
+  color: #be185d;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.dark .article :not(pre) > code { background: #1e293b; color: #f9a8d4; }
+.article :not(pre) > code::before,
+.article :not(pre) > code::after { content: none; }
+
+/* Hugo line-number table when lineNos=true, without prose table styling. */
+.article .highlight table { width: auto; margin: 0; border: 0; font: inherit; }
+.article .highlight td { padding: 0; border: 0; vertical-align: top; }
+.article .highlight td:first-child pre { padding-right: 0.75rem; user-select: none; }
+.article .highlight td:last-child pre { padding-left: 0.75rem; }
+
+@source "../../layouts/search.html";

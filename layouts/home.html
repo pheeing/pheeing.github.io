@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="shell pt-14 pb-12 sm:pt-20">
+  <div class="grid gap-9 lg:grid-cols-[minmax(0,1fr)_290px] lg:items-start">
+    <div>
+      <span class="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[.22em] text-indigo-600 dark:text-indigo-400">
+        <span class="h-2 w-2 rounded-full bg-indigo-500"></span> Personal knowledge base
+      </span>
+      <h1 class="text-4xl sm:text-6xl font-bold tracking-tight leading-tight">생각과 배움을<br>
+        <span class="text-indigo-600 dark:text-indigo-400">차곡차곡 기록합니다.</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-8 muted">{{ site.Params.description }}</p>
+    </div>
+    {{ partial "author-card.html" . }}
+  </div>
+</section>
+<section class="shell pb-12">
+  <div class="mb-6 flex items-center justify-between">
+    <h2 class="text-2xl font-bold tracking-tight">최근 작성한 글</h2>
+    <a class="text-sm link" href="{{ "categories/" | relURL }}">카테고리 둘러보기 →</a>
+  </div>
+  {{ $posts := where site.RegularPages "Params.hidden" "ne" true }}{{ $p := .Paginate $posts.ByDate.Reverse }}
+  <div class="grid gap-4 md:grid-cols-2">{{ range $p.Pages }}{{ partial "post-card.html" . }}
+    {{ else }}<p class="muted">아직 작성한 글이 없습니다.</p>
+    {{ end }}
+  </div>{{ partial "pagination.html" . }}
+</section>
+{{ end }}

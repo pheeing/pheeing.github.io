@@ -1,0 +1,31 @@
+/* Chroma light (GitHub-inspired). Token classes emitted by Hugo with noClasses: false. */
+/* Put these selectors outside CSS layers so syntax tokens beat Tailwind Typography. */
+:root .article .chroma { color: #24292f; background: #f6f8fa; -webkit-text-size-adjust: none; }
+:root .article .chroma .err { color: #cf222e; }
+:root .article .chroma .k, :root .article .chroma .kc, :root .article .chroma .kd,
+:root .article .chroma .kn, :root .article .chroma .kp, :root .article .chroma .kr,
+:root .article .chroma .kt, :root .article .chroma .o, :root .article .chroma .ow { color: #cf222e; }
+:root .article .chroma .n, :root .article .chroma .nx, :root .article .chroma .p { color: #24292f; }
+:root .article .chroma .na, :root .article .chroma .nb, :root .article .chroma .nc,
+:root .article .chroma .nd, :root .article .chroma .ne, :root .article .chroma .nf,
+:root .article .chroma .fm, :root .article .chroma .nn { color: #8250df; }
+:root .article .chroma .nv, :root .article .chroma .vc, :root .article .chroma .vg,
+:root .article .chroma .vi, :root .article .chroma .vm, :root .article .chroma .no { color: #953800; }
+:root .article .chroma .s, :root .article .chroma .sa, :root .article .chroma .sb,
+:root .article .chroma .sc, :root .article .chroma .dl, :root .article .chroma .sd,
+:root .article .chroma .s1, :root .article .chroma .s2, :root .article .chroma .sh,
+:root .article .chroma .si, :root .article .chroma .sr, :root .article .chroma .ss,
+:root .article .chroma .sx, :root .article .chroma .se { color: #0a3069; }
+:root .article .chroma .m, :root .article .chroma .mb, :root .article .chroma .mf,
+:root .article .chroma .mh, :root .article .chroma .mi, :root .article .chroma .il,
+:root .article .chroma .mo { color: #0550ae; }
+:root .article .chroma .c, :root .article .chroma .ch, :root .article .chroma .cm,
+:root .article .chroma .c1, :root .article .chroma .cs, :root .article .chroma .cp,
+:root .article .chroma .cpf { color: #57606a; font-style: italic; }
+:root .article .chroma .gd { color: #82071e; background: #ffebe9; }
+:root .article .chroma .gi { color: #116329; background: #dafbe1; }
+:root .article .chroma .gh, :root .article .chroma .gu { color: #0550ae; font-weight: 700; }
+:root .article .chroma .ge { font-style: italic; }
+:root .article .chroma .gs { font-weight: 700; }
+:root .article .chroma .ln, :root .article .chroma .lnt { color: #6e7781; }
+:root .article .chroma .hl { background: #ddf4ff; }
