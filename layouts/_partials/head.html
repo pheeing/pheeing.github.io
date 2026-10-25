@@ -13,12 +13,11 @@
 <meta property="og:description" content="{{ $desc | plainify | htmlEscape }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
-<!-- Hugo Chroma Syntax Highlighting -->
-<link rel="stylesheet" href="{{ "css/chroma-light.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/chroma-dark.css" | relURL }}">
 <script>
 /* 화면 깜빡임을 방지하기 위해 head에서 저장된 테마를 즉시 적용 */
 (function(){try{var v=localStorage.getItem('theme');var dark=v==='dark'||(!v&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',dark)}catch(e){}})();
 </script>
 
 {{ if eq .Layout "search" }}<script defer src="{{ "js/search.js" | relURL }}"></script>{{ end }}
+
+{{ partial "integrations/head.html" . }}

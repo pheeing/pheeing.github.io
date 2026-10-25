@@ -4,15 +4,9 @@
     <a href="{{ site.Home.RelPermalink }}" class="hover:text-indigo-500">Home</a>
     <span>/</span>{{ range first 1 (.GetTerms "categories") }}
     <a href="{{ .RelPermalink }}" class="hover:text-indigo-500">{{ .LinkTitle }}</a>
-    <span>/</span>
-    {{ else }}
-    {{ with .CurrentSection }}
-    {{ if not .IsHome }}
+    <span>/</span>{{ else }}{{ with .CurrentSection }}{{ if not .IsHome }}
     <a href="{{ .RelPermalink }}" class="hover:text-indigo-500">{{ .LinkTitle }}</a>
-    <span>/</span>
-    {{ end }}
-    {{ end }}
-    {{ end }}<span aria-current="page">{{ .LinkTitle }}</span>
+    <span>/</span>{{ end }}{{ end }}{{ end }}<span aria-current="page">{{ .LinkTitle }}</span>
   </nav>
   <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_230px]">
     <article class="min-w-0">
@@ -46,8 +40,7 @@
           {{ end }}
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <strong class="w-20 shrink-0">Tags</strong>
-          {{ range .GetTerms "tag" }}
+          <strong class="w-20 shrink-0">Tags</strong>{{ range .GetTerms "tag" }}
           <a class="chip" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
           {{ else }}
           <span class="muted">없음</span>
@@ -60,16 +53,20 @@
       </section>
       <nav class="mt-10 flex flex-wrap justify-between gap-4 text-sm">{{ with .PrevInSection }}
         <a class="link" href="{{ .RelPermalink }}">← {{ .LinkTitle }}</a>
-        {{ end }}{{ with .NextInSection }}
+        {{ end }}
+        {{ with .NextInSection }}
         <a class="link" href="{{ .RelPermalink }}">{{ .LinkTitle }} →</a>
         {{ end }}
       </nav>
+      {{ partial "integrations/comments.html" . }}
     </article>{{ if .Params.toc }}
     <aside class="hidden lg:block">
       <div class="sticky top-26">
         <h2 class="mb-4 text-xs font-bold uppercase tracking-widest muted">On this page</h2>
         <nav aria-label="문서 목차" class="toc">{{ .TableOfContents }}</nav>
       </div>
-    </aside>{{ end }}
+    </aside>
+    {{ end }}
   </div>
-</div>{{ end }}
+</div>
+{{ end }}

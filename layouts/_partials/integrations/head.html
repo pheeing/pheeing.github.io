@@ -1,0 +1,10 @@
+{{/* 외부 서비스는 production에서만 기본 활성화. 비공개 테스트는 enableInDevelopment=true. */}}
+{{ $enabled := or hugo.IsProduction (site.Params.integrations.enableInDevelopment | default false) }}
+{{ if $enabled }}
+  {{/* Hugo 기본 GA4 템플릿. G-... ID, DNT 설정은 Hugo services 설정 사용. */}}
+  {{ with site.Config.Services.GoogleAnalytics.ID }}{{ partial "google_analytics.html" $ }}{{ end }}
+  {{/* Auto Ads: 광고 위치 자동 배치. ads.txt와 별개이며, 승인/설정이 필요함. */}}
+  {{ with site.Params.integrations.adsenseClient }}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ . }}" crossorigin="anonymous"></script>
+  {{ end }}
+{{ end }}

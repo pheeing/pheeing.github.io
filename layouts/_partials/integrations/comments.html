@@ -1,0 +1,47 @@
+{{/* 기존 댓글과 연결할 때 disqus_identifier 또는 disqus_url 값을 유지하세요. */}}
+{{ $enabled := or hugo.IsProduction (site.Params.integrations.enableInDevelopment | default false) }}
+{{ $shortname := site.Config.Services.Disqus.Shortname }}
+{{ $siteEnabled := site.Params.comments.enabled | default false }}
+{{ $pageEnabled := true }}
+{{ if isset .Params "comments" }}{{ $pageEnabled = .Params.comments }}{{ end }}
+{{ if and $enabled $shortname $siteEnabled $pageEnabled }}
+  {{ $id := .Params.disqus_identifier | default .RelPermalink }}
+  {{ $url := .Params.disqus_url | default .Permalink }}
+  {{ $title := .Params.disqus_title | default .Title }}
+  <section class="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800" aria-label="댓글">
+    <h2 class="mb-4 text-xl font-bold">댓글</h2>
+    <div id="disqus_thread"></div>
+    {{ if site.Params.comments.lazyLoad }}
+      <button type="button" id="disqus-load-button" class="chip cursor-pointer" aria-controls="disqus_thread">댓글 불러오기</button>
+    {{ end }}
+    <noscript>댓글을 보려면 JavaScript를 활성화해 주세요.</noscript>
+  </section>
+  <script>
+  (function () {
+    const shortname = {{ $shortname | jsonify | safeJS }};
+    const identifier = {{ $id | jsonify | safeJS }};
+    const permalink = {{ $url | jsonify | safeJS }};
+    const title = {{ $title | jsonify | safeJS }};
+    let loaded = false;
+    function loadComments() {
+      if (loaded) return;
+      loaded = true;
+      window.disqus_config = function () {
+        this.page.url = permalink;
+        this.page.identifier = identifier;
+        this.page.title = title;
+      };
+      const script = document.createElement('script');
+      script.src = 'https://' + shortname + '.disqus.com/embed.js';
+      script.async = true;
+      script.setAttribute('data-timestamp', String(Date.now()));
+      document.body.appendChild(script);
+      const button = document.getElementById('disqus-load-button');
+      if (button) button.remove();
+    }
+    const button = document.getElementById('disqus-load-button');
+    if (button) button.addEventListener('click', loadComments);
+    else loadComments();
+  })();
+  </script>
+{{ end }}

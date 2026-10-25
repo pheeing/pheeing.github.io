@@ -19,7 +19,10 @@ markup:
     renderer:
       unsafe: false
   highlight:
+    codeFences: true
     noClasses: false
+    wrapperClass: highlight
+    lineNos: false
   tableOfContents:
     startLevel: 2
     endLevel: 4
@@ -33,6 +36,12 @@ outputFormats:
     isPlainText: true
     notAlternative: true
 params:
+  integrations:
+    adsenseClient: "ca-pub-2334849691251582" # "ca-pub-0123456789012345" (AdSense 게시자 ID; 자동 광고)
+    enableInDevelopment: false # 운영 환경에서만 외부 스크립트 실행
+  comments:
+    enabled: true
+    lazyLoad: true # 댓글 보기 버튼을 누르면 Disqus 연결 (개인정보/성능 고려)
   description: "개발하며 기록하는 작은 공간"
   showReadingTime: true
   author:
@@ -41,7 +50,7 @@ params:
     avatar: "" # "/images/avatar.jpg"
     bio: "다양한 개발을 하고 있는 개발자 입니다."
     location: "서울"
-    email: "hello@example.com"
+    email: ""
     links:
       - label: "Email"
         icon: "fas fa-fw fa-envelope-square"
@@ -69,3 +78,9 @@ params:
       - label: "Instagram"
         icon: "fab fa-fw fa-instagram"
         url: ""
+
+services:
+  googleAnalytics:
+    id: "G-NMXBR0H2XX" # "G-XXXXXXXXXX" (GA4 측정 ID)
+  disqus:
+    shortname: "pheeing" # 기존 Jekyll 블로그의 Disqus shortname
